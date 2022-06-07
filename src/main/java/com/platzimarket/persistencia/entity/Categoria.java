@@ -1,6 +1,9 @@
 package com.platzimarket.persistencia.entity;
 
+
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "categorias")
@@ -11,6 +14,9 @@ public class Categoria {
     private Integer idCategoria;
     private String descripcion;
     private boolean estado;
+
+    @OneToMany(mappedBy = "categoria") //relación con la variable categoria creada en la clase Producto
+    private List<Producto> productos;
 
     public Integer getIdCategoria() {
         return idCategoria;
